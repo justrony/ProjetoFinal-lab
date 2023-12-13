@@ -1,3 +1,10 @@
+/****************************************************/
+/*Alunos: RONIELLE DE SOUZA, RYAN MACEDO, PEDRO IURY*/
+/*Matricula:                                        */
+/*Avaliacao 04: Trabalho Final                      */
+/*14.12.2023 - 2023.2 - Porf. Daniel Ferreira       */
+/*Compilador: gcc/mingw versão: (tdm64-1) 10.3.0    */
+/****************************************************/
 #include "ff.h"
 
 void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int niveis, struct pgm *pio, int filtro)
