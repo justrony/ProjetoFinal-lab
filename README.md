@@ -6,6 +6,7 @@ Este é um programa em C que processa imagens PGM (Portable Gray Map) localizada
 Requisitos:
 
 O código utiliza a biblioteca "ff.h" para a manipulação de imagens PGM. Certifique-se de que a biblioteca está instalada antes de compilar e executar o programa.
+Certifique-se também se o diretorio de imagens está nomeado corretamente como "images".
 
 Compilação:
 
