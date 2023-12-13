@@ -8,6 +8,7 @@ Requisitos:
 O código utiliza a biblioteca "ff.h" para a manipulação de imagens PGM. Certifique-se de que a biblioteca está instalada antes de compilar e executar o programa.
 
 Compilação:
+
 Compile o programa utilizando um compilador C, com intermedio de uma execução de Makefile.
 
 Uso:
