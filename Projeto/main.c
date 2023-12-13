@@ -1,10 +1,3 @@
-/****************************************************/
-/*Alunos: RONIELLE DE SOUZA, RYAN MACEDO, PEDRO IURY*/
-/*Matricula:                                        */
-/*Avaliacao 04: Trabalho Final                      */
-/*14.12.2023 - 2023.2 - Porf. Daniel Ferreira       */
-/*Compilador: gcc/mingw versão: (tdm64-1) 10.3.0    */
-/****************************************************/
 #include "ff.h"
 
 int main(int argc, char *argv[])
@@ -57,7 +50,7 @@ int main(int argc, char *argv[])
             filtraMatriz(imgF.pData, imgF.r, imgF.c, niveis);
             quantizeImage(img.pData, img.r, img.c, quantizacao);
             quantizeImage(imgF.pData, imgF.r, imgF.c, quantizacao);
-            gerarSCM(img.pData, imgF.pData, dir->d_name, quantizacao, &img);
+            gerarSCM(img.pData, imgF.pData, dir->d_name, quantizacao, &img, niveis);
 
 
             free(img.pData);

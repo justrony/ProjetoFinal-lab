@@ -1,15 +1,14 @@
 #include "ff.h"
 
-void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int niveis, struct pgm *pio)
+void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int niveis, struct pgm *pio, int filtro)
 {
-    char fimImagem[20];
+    char rotulo[20];
     char nomeArquivo[20];
-    int *matrix = NULL;
     FILE *fp;
     static int count = 0;
-    int scm[niveis][niveis];
-
-    sprintf(nomeArquivo, "SCM-Qtz_%d.txt", niveis);
+    int *scm;
+    scm = (int *)malloc(niveis * niveis * sizeof(int));
+    sprintf(nomeArquivo, "SCM-Qtz_%d_%d.txt", niveis, filtro);
 
     fp = fopen(nomeArquivo, "a");
 
@@ -33,15 +32,10 @@ void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int n
         count++;
     }
 
-    if (!(matrix = calloc(niveis * niveis, sizeof(int))))
-    {
-        puts("Memória Insuficiente");
-        exit(3);
-    }
-    
+
        for (int i = 0; i < niveis ; i++){
          for (int j = 0; j < niveis ; j++){
-            scm[i][j] = 0;
+            (scm[i *niveis + j])  = 0;
             
          }
     }
@@ -50,31 +44,31 @@ void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int n
     for (int i = 0; i < pio->r * pio->c; i++) {
         int indice_dados = dados[i];
         int indice_dadosF = dadosF[i];
-        scm[indice_dados][indice_dadosF]++;
+        (scm[indice_dados * niveis + indice_dadosF])++;
      }
 
     for (int i = 0; i < niveis; i++)
     {
         for (int j = 0; j < niveis; j++){
-            fprintf(fp, "%d, ", scm[i][j]);
+            fprintf(fp, "%d, ", scm[i * niveis + j]);
         }
         
     }
 
     if (*filename == '1')
     {
-        strcpy(fimImagem, "stroma");
+        strcpy(rotulo, "stroma");
     }
     else
     {
-        strcpy(fimImagem, "epithelium");
+        strcpy(rotulo, "epithelium");
     }
 
-    fprintf(fp, "%s", fimImagem);
+    fprintf(fp, "%s", rotulo);
     fputc('\n', fp);
 
     fclose(fp);
-    free(matrix);
+    free(scm);
 }
 
 
