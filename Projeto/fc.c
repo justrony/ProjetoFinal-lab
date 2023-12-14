@@ -80,13 +80,13 @@ void gerarSCM(unsigned char *dados, unsigned char *dadosF, char *filename, int n
 
 
 
-void quantizeImage(unsigned char *dados, int linha, int coluna, int nivel)
+void quantizeImage(unsigned char *dados, int linha, int coluna, int nivel, int mv)
 {
     int quantizedValue;
 
     for (int i = 0; i < linha * coluna; i++)
     {
-        quantizedValue = (dados[i] * nivel) / 255;
+        quantizedValue = (dados[i] * nivel) / mv;
         // Atualiza o valor na imagem
         dados[i] = (unsigned char)quantizedValue;
     }
