@@ -55,8 +55,8 @@ int main(int argc, char *argv[])
             // Copia os dados da struct img em uma nova struct que vai ser filtrada
     
             filtraMatriz(imgF.pData, imgF.r, imgF.c, niveis);
-            quantizeImage(img.pData, img.r, img.c, quantizacao);
-            quantizeImage(imgF.pData, imgF.r, imgF.c, quantizacao);
+            quantizeImage(img.pData, img.r, img.c, quantizacao, pio->mv);
+            quantizeImage(imgF.pData, imgF.r, imgF.c, quantizacao, pio-> mv);
             gerarSCM(img.pData, imgF.pData, dir->d_name, quantizacao, &img, niveis);
 
 
