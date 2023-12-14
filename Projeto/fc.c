@@ -125,20 +125,3 @@ void filtraMatriz(unsigned char *dados, int linha, int coluna, int filtro)
         }
     }
 }
-
-
-int criaCoocorrencias(int *matriz, unsigned char *dados, unsigned char *dadosF, int niveis, int linhas, int colunas)
-{
-    // Preenche com a coocorrência
-    for (int i = 0; i < linhas * colunas; i++) {
-        int indice_dados = dados[i];
-        int indice_dadosF = dadosF[i];
-
-        // Garante que os índices estejam dentro dos limites
-        if (indice_dados < niveis && indice_dadosF < niveis) {
-            matriz[indice_dados * niveis + indice_dadosF]++;
-        }
-     }
-    }
-
-
